@@ -1,31 +1,31 @@
 extends Node2D
 
+# Señales
+signal HideOptions
+
+# Funciones
 func _ready():
 	$ProgressBar.value = StatsPlayer.health * 100 / StatsPlayer.max_health
 	$AnimationPlayer.play("Idle")
 	SceneManager.current_scene = "BatallaAbad"
 
-func weapon():
+func weapon(): # En un futuro el jugador podrá adquirir una espada y así aumentar su daño promedio
 	if StatsPlayer.has_sword == false:
 		$AnimationPlayer.play("Normal attack (staff)")
-		StatsPlayer.damage = randi() % 3 + 1
+		StatsPlayer.damage = randi() % 3 + 1 # Randi = random
 	else:
 		$AnimationPlayer.play("Normal attack (sword)")
 		StatsPlayer.damage = randi() % 3 + 4
 
-signal HideOptions
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Death":
 		SceneManager.skull_transition()
-		Global.restore_inventory()
+		Global.restore_inventory() # Función de guardado de inventario
 	elif StatsPlayer.health <= 0:
 		$AnimationPlayer.play("Death")
 		emit_signal("HideOptions")
 	else:
 		$AnimationPlayer.play("Idle")
-
-		
 
 func _on_attack_made():
 	$AnimationPlayer.play("Damage")
@@ -35,8 +35,6 @@ func _on_attack_made():
 	$ProgressBar.value = StatsPlayer.health * 100 / StatsPlayer.max_health
 	if StatsPlayer.health > 0:
 		get_parent().get_node("Options").show()
-	else:
-		pass
 
 func strong_damage_made_roulette():
 	if StatsPlayer.has_sword == false:
@@ -50,7 +48,7 @@ func strong_damage_received_roulette():
 	get_parent().get_node("Abad combate").get_node("AnimationPlayer").play("Ataque")
 
 
-func apply_item_effect(item: Dictionary):
+func apply_item_effect(item: Dictionary): # Aquí se definen los efectos de todos los items
 	if item["type"] == "Curación":
 		StatsPlayer.health = StatsPlayer.health + 3
 		if StatsPlayer.health > StatsPlayer.max_health:
