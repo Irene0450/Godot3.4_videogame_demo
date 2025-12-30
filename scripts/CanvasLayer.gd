@@ -1,7 +1,10 @@
 extends CanvasLayer
 
+# Variables
 onready var map = $ControlMapa
 onready var inv = $ControlInventario
+
+# Funciones
 
 func _ready():
 	map.close()
