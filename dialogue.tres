@@ -1,0 +1,1301 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 140
+syntax_version = 2
+raw_text = "~ AbadDialogue
+Tú: Padre, he venido a pedir su bendición. He decidido emprender el Camino de Santiago.
+Abad: !?
+Abad: Hijo, jamás has salido de este pueblo. ¿Por qué ahora pretendes recorrer media España?
+Abad: El camino es más que una ruta de piedras y polvo. Te pondrá a prueba en muchos aspectos.
+Abad: ¿Estás seguro de que podrás hacerlo?
+- Por supuesto.
+	Abad: Entonces deberás aprender a luchar [speed=0.05] . . .  [speed=1][wait=1] por si acaso.
+	do skull_transition()
+- No, mejor me quedo en casa.
+	#Redirigir a créditos ('Gracias por jugar') con =>
+set get_tree().paused = false
+
+~ AbadDialogue2
+Abad: Estás listo. Que Dios te acompañe.
+Tú: Gracias, padre.
+set get_tree().paused = false
+
+~ CabañaInicial1
+¡Es hora de comenzar el viaje!
+Necesitarás un mapa, la mochila y el bordón (palo).
+Pulsa enter para recogerlos.
+set get_tree().paused = false
+
+~ Mochila_Cabaña
+Pulsa E para abrir el inventario.
+set get_tree().paused = false
+
+~ Mapa_Cabaña
+Ahora podrás ver el mapa pulsando M.
+set get_tree().paused = false
+
+~ CamaRojaCabaña
+if veces_interactuo_con_cama == 0
+	¡No puedes dormir ahora! Te espera una gran aventura.
+	set veces_interactuo_con_cama += 1
+	set get_tree().paused = false
+elif veces_interactuo_con_cama == 1
+	Alguien no está muy entusiasmado, ¿eh? Jaja.
+	set veces_interactuo_con_cama = 2
+	set get_tree().paused = false
+elif veces_interactuo_con_cama == 2
+	Me está empezando a molestar.
+	set veces_interactuo_con_cama = 3
+	set get_tree().paused = false
+elif veces_interactuo_con_cama == 3
+	Escucha, [wait=0.5]no he pasado un año de mi vida haciendo un juego para que no salgas del puto spawn. [wait=1][speed=0.1]Vete.
+	set veces_interactuo_con_cama = 4
+	set get_tree().paused = false
+else
+	...
+	set get_tree().paused = false
+
+~ Inicio
+Antes de partir, asegúrate de tener la bendición del abad.
+Se encuentra al este del pueblo.
+set get_tree().paused = false
+
+~ RubioIrún
+Vecino: Tsss, no se lo digas a nadie, pero hay un [wave amp=25 freq=5]easter egg[/wave] en la casa del tejado rojo.
+set get_tree().paused = false
+
+~ HerreroIrún
+if ha_hablado_herrero == false
+	Herrero: Me han dicho que al fin has decidido recorrer el Camino de Santiago.
+	Herrero: Toma esto, quizá te sea de ayuda.
+	do spawn_health_potion()
+	Herrero: ¡Mucha suerte!
+	set ha_hablado_herrero = true
+else
+	Herrero: No tengo nada más para tí. 
+set get_tree().paused = false
+
+~ PacoIrún
+Paco \"El Pirata\": Realmente mi ojo está bien, pero el parche me hace ver más duro.
+set get_tree().paused = false
+
+~ PescadorIrún
+if ha_hablado_pescador == false
+	No parece un buen sitio para pescar.
+	- Decirle que vaya al mar.
+		No te responde. [wait=0.5]En su lugar, te dice con la mirada que observes su cubo.
+		Hay un pez.
+		Sospechas que lo ha traído de casa para no sentirse tan mal.
+	- Dejarle ser feliz.
+		Sientes que es lo correcto.
+	set ha_hablado_pescador = true
+else
+	Es feliz.
+set get_tree().paused = false
+
+~ ChicaIrún
+Vecina: ¡Tráeme algún recuerdo del viaje!
+set get_tree().paused = false
+
+~ ManzanaIrún
+Vecino: Ñam
+set get_tree().paused = false
+
+~ TendalInicio
+Está ocupada, es mejor no molestarla.
+set get_tree().paused = false
+
+~ PuertaBloqueada
+Está cerrada.
+set get_tree().paused = false
+
+~ Esha
+Esha: bcnennwbeuebhwuiuyry kmiras
+Esha: no soy un cavvayo normal
+Esha: estoy aqui con mi cavvaya, no le hables que te pego un colazo
+set get_tree().paused = false"
+errors = [  ]
+titles = {
+"AbadDialogue": "1",
+"AbadDialogue2": "14",
+"CabañaInicial1": "19",
+"CamaRojaCabaña": "33",
+"ChicaIrún": "92",
+"Esha": "108",
+"HerreroIrún": "63",
+"Inicio": "54",
+"ManzanaIrún": "96",
+"Mapa_Cabaña": "29",
+"Mochila_Cabaña": "25",
+"PacoIrún": "74",
+"PescadorIrún": "78",
+"PuertaBloqueada": "104",
+"RubioIrún": "59",
+"TendalInicio": "100"
+}
+lines = {
+"0": {
+"next_id": "1",
+"text": "AbadDialogue",
+"type": "title"
+},
+"1": {
+"character": "Tú",
+"character_replacements": [  ],
+"next_id": "2",
+"replacements": [  ],
+"text": "Padre, he venido a pedir su bendición. He decidido emprender el Camino de Santiago.",
+"translation_key": "Padre, he venido a pedir su bendición. He decidido emprender el Camino de Santiago.",
+"type": "dialogue"
+},
+"100": {
+"character": "",
+"next_id": "101",
+"replacements": [  ],
+"text": "Está ocupada, es mejor no molestarla.",
+"translation_key": "Está ocupada, es mejor no molestarla.",
+"type": "dialogue"
+},
+"101": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"103": {
+"next_id": "104",
+"text": "PuertaBloqueada",
+"type": "title"
+},
+"104": {
+"character": "",
+"next_id": "105",
+"replacements": [  ],
+"text": "Está cerrada.",
+"translation_key": "Está cerrada.",
+"type": "dialogue"
+},
+"105": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"107": {
+"next_id": "108",
+"text": "Esha",
+"type": "title"
+},
+"108": {
+"character": "Esha",
+"character_replacements": [  ],
+"next_id": "109",
+"replacements": [  ],
+"text": "bcnennwbeuebhwuiuyry kmiras",
+"translation_key": "bcnennwbeuebhwuiuyry kmiras",
+"type": "dialogue"
+},
+"109": {
+"character": "Esha",
+"character_replacements": [  ],
+"next_id": "110",
+"replacements": [  ],
+"text": "no soy un cavvayo normal",
+"translation_key": "no soy un cavvayo normal",
+"type": "dialogue"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"110": {
+"character": "Esha",
+"character_replacements": [  ],
+"next_id": "111",
+"replacements": [  ],
+"text": "estoy aqui con mi cavvaya, no le hables que te pego un colazo",
+"translation_key": "estoy aqui con mi cavvaya, no le hables que te pego un colazo",
+"type": "dialogue"
+},
+"111": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"13": {
+"next_id": "14",
+"text": "AbadDialogue2",
+"type": "title"
+},
+"14": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "15",
+"replacements": [  ],
+"text": "Estás listo. Que Dios te acompañe.",
+"translation_key": "Estás listo. Que Dios te acompañe.",
+"type": "dialogue"
+},
+"15": {
+"character": "Tú",
+"character_replacements": [  ],
+"next_id": "16",
+"replacements": [  ],
+"text": "Gracias, padre.",
+"translation_key": "Gracias, padre.",
+"type": "dialogue"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"18": {
+"next_id": "19",
+"text": "CabañaInicial1",
+"type": "title"
+},
+"19": {
+"character": "",
+"next_id": "20",
+"replacements": [  ],
+"text": "¡Es hora de comenzar el viaje!",
+"translation_key": "¡Es hora de comenzar el viaje!",
+"type": "dialogue"
+},
+"2": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "3",
+"replacements": [  ],
+"text": "!?",
+"translation_key": "!?",
+"type": "dialogue"
+},
+"20": {
+"character": "",
+"next_id": "21",
+"replacements": [  ],
+"text": "Necesitarás un mapa, la mochila y el bordón (palo).",
+"translation_key": "Necesitarás un mapa, la mochila y el bordón (palo).",
+"type": "dialogue"
+},
+"21": {
+"character": "",
+"next_id": "22",
+"replacements": [  ],
+"text": "Pulsa enter para recogerlos.",
+"translation_key": "Pulsa enter para recogerlos.",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"24": {
+"next_id": "25",
+"text": "Mochila_Cabaña",
+"type": "title"
+},
+"25": {
+"character": "",
+"next_id": "26",
+"replacements": [  ],
+"text": "Pulsa E para abrir el inventario.",
+"translation_key": "Pulsa E para abrir el inventario.",
+"type": "dialogue"
+},
+"26": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"28": {
+"next_id": "29",
+"text": "Mapa_Cabaña",
+"type": "title"
+},
+"29": {
+"character": "",
+"next_id": "30",
+"replacements": [  ],
+"text": "Ahora podrás ver el mapa pulsando M.",
+"translation_key": "Ahora podrás ver el mapa pulsando M.",
+"type": "dialogue"
+},
+"3": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "4",
+"replacements": [  ],
+"text": "Hijo, jamás has salido de este pueblo. ¿Por qué ahora pretendes recorrer media España?",
+"translation_key": "Hijo, jamás has salido de este pueblo. ¿Por qué ahora pretendes recorrer media España?",
+"type": "dialogue"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"32": {
+"next_id": "33",
+"text": "CamaRojaCabaña",
+"type": "title"
+},
+"33": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 0
+} ]
+},
+"next_conditional_id": "37",
+"next_id": "34",
+"next_id_after": "end!",
+"type": "condition"
+},
+"34": {
+"character": "",
+"next_id": "35",
+"parent_id": "33",
+"replacements": [  ],
+"text": "¡No puedes dormir ahora! Te espera una gran aventura.",
+"translation_key": "¡No puedes dormir ahora! Te espera una gran aventura.",
+"type": "dialogue"
+},
+"35": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "assignment",
+"value": "+="
+}, {
+"type": "number",
+"value": 1
+} ]
+},
+"next_id": "36",
+"parent_id": "33",
+"type": "mutation"
+},
+"36": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "end!",
+"parent_id": "33",
+"type": "mutation"
+},
+"37": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 1
+} ]
+},
+"next_conditional_id": "41",
+"next_id": "38",
+"next_id_after": "end!",
+"type": "condition"
+},
+"38": {
+"character": "",
+"next_id": "39",
+"parent_id": "37",
+"replacements": [  ],
+"text": "Alguien no está muy entusiasmado, ¿eh? Jaja.",
+"translation_key": "Alguien no está muy entusiasmado, ¿eh? Jaja.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "number",
+"value": 2
+} ]
+},
+"next_id": "40",
+"parent_id": "37",
+"type": "mutation"
+},
+"4": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "El camino es más que una ruta de piedras y polvo. Te pondrá a prueba en muchos aspectos.",
+"translation_key": "El camino es más que una ruta de piedras y polvo. Te pondrá a prueba en muchos aspectos.",
+"type": "dialogue"
+},
+"40": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "end!",
+"parent_id": "37",
+"type": "mutation"
+},
+"41": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 2
+} ]
+},
+"next_conditional_id": "45",
+"next_id": "42",
+"next_id_after": "end!",
+"type": "condition"
+},
+"42": {
+"character": "",
+"next_id": "43",
+"parent_id": "41",
+"replacements": [  ],
+"text": "Me está empezando a molestar.",
+"translation_key": "Me está empezando a molestar.",
+"type": "dialogue"
+},
+"43": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "number",
+"value": 3
+} ]
+},
+"next_id": "44",
+"parent_id": "41",
+"type": "mutation"
+},
+"44": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "end!",
+"parent_id": "41",
+"type": "mutation"
+},
+"45": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 3
+} ]
+},
+"next_conditional_id": "49",
+"next_id": "46",
+"next_id_after": "end!",
+"type": "condition"
+},
+"46": {
+"character": "",
+"next_id": "47",
+"parent_id": "45",
+"replacements": [  ],
+"text": "Escucha, [wait=0.5]no he pasado un año de mi vida haciendo un juego para que no salgas del puto spawn. [wait=1][speed=0.1]Vete.",
+"translation_key": "Escucha, [wait=0.5]no he pasado un año de mi vida haciendo un juego para que no salgas del puto spawn. [wait=1][speed=0.1]Vete.",
+"type": "dialogue"
+},
+"47": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "veces_interactuo_con_cama"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "number",
+"value": 4
+} ]
+},
+"next_id": "48",
+"parent_id": "45",
+"type": "mutation"
+},
+"48": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "end!",
+"parent_id": "45",
+"type": "mutation"
+},
+"49": {
+"next_conditional_id": "end!",
+"next_id": "50",
+"next_id_after": "end!",
+"type": "condition"
+},
+"5": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "6",
+"replacements": [  ],
+"text": "¿Estás seguro de que podrás hacerlo?",
+"translation_key": "¿Estás seguro de que podrás hacerlo?",
+"type": "dialogue"
+},
+"50": {
+"character": "",
+"next_id": "51",
+"parent_id": "49",
+"replacements": [  ],
+"text": "...",
+"translation_key": "...",
+"type": "dialogue"
+},
+"51": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "end!",
+"parent_id": "49",
+"type": "mutation"
+},
+"53": {
+"next_id": "54",
+"text": "Inicio",
+"type": "title"
+},
+"54": {
+"character": "",
+"next_id": "55",
+"replacements": [  ],
+"text": "Antes de partir, asegúrate de tener la bendición del abad.",
+"translation_key": "Antes de partir, asegúrate de tener la bendición del abad.",
+"type": "dialogue"
+},
+"55": {
+"character": "",
+"next_id": "56",
+"replacements": [  ],
+"text": "Se encuentra al este del pueblo.",
+"translation_key": "Se encuentra al este del pueblo.",
+"type": "dialogue"
+},
+"56": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"58": {
+"next_id": "59",
+"text": "RubioIrún",
+"type": "title"
+},
+"59": {
+"character": "Vecino",
+"character_replacements": [  ],
+"next_id": "60",
+"replacements": [  ],
+"text": "Tsss, no se lo digas a nadie, pero hay un [wave amp=25 freq=5]easter egg[/wave] en la casa del tejado rojo.",
+"translation_key": "Tsss, no se lo digas a nadie, pero hay un [wave amp=25 freq=5]easter egg[/wave] en la casa del tejado rojo.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "7",
+"next_id_after": "11",
+"replacements": [  ],
+"responses": PoolStringArray( "6", "9" ),
+"text": "Por supuesto.",
+"translation_key": "Por supuesto.",
+"type": "response"
+},
+"60": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"62": {
+"next_id": "63",
+"text": "HerreroIrún",
+"type": "title"
+},
+"63": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "ha_hablado_herrero"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "69",
+"next_id": "64",
+"next_id_after": "71",
+"type": "condition"
+},
+"64": {
+"character": "Herrero",
+"character_replacements": [  ],
+"next_id": "65",
+"parent_id": "63",
+"replacements": [  ],
+"text": "Me han dicho que al fin has decidido recorrer el Camino de Santiago.",
+"translation_key": "Me han dicho que al fin has decidido recorrer el Camino de Santiago.",
+"type": "dialogue"
+},
+"65": {
+"character": "Herrero",
+"character_replacements": [  ],
+"next_id": "66",
+"parent_id": "63",
+"replacements": [  ],
+"text": "Toma esto, quizá te sea de ayuda.",
+"translation_key": "Toma esto, quizá te sea de ayuda.",
+"type": "dialogue"
+},
+"66": {
+"mutation": {
+"expression": [ {
+"function": "spawn_health_potion",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "67",
+"parent_id": "63",
+"type": "mutation"
+},
+"67": {
+"character": "Herrero",
+"character_replacements": [  ],
+"next_id": "68",
+"parent_id": "63",
+"replacements": [  ],
+"text": "¡Mucha suerte!",
+"translation_key": "¡Mucha suerte!",
+"type": "dialogue"
+},
+"68": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "ha_hablado_herrero"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "71",
+"parent_id": "63",
+"type": "mutation"
+},
+"69": {
+"next_conditional_id": "71",
+"next_id": "70",
+"next_id_after": "71",
+"type": "condition"
+},
+"7": {
+"character": "Abad",
+"character_replacements": [  ],
+"next_id": "8",
+"parent_id": "6",
+"replacements": [  ],
+"text": "Entonces deberás aprender a luchar [speed=0.05] . . .  [speed=1][wait=1] por si acaso.",
+"translation_key": "Entonces deberás aprender a luchar [speed=0.05] . . .  [speed=1][wait=1] por si acaso.",
+"type": "dialogue"
+},
+"70": {
+"character": "Herrero",
+"character_replacements": [  ],
+"next_id": "71",
+"parent_id": "69",
+"replacements": [  ],
+"text": "No tengo nada más para tí.",
+"translation_key": "No tengo nada más para tí.",
+"type": "dialogue"
+},
+"71": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"73": {
+"next_id": "74",
+"text": "PacoIrún",
+"type": "title"
+},
+"74": {
+"character": "Paco \"El Pirata\"",
+"character_replacements": [  ],
+"next_id": "75",
+"replacements": [  ],
+"text": "Realmente mi ojo está bien, pero el parche me hace ver más duro.",
+"translation_key": "Realmente mi ojo está bien, pero el parche me hace ver más duro.",
+"type": "dialogue"
+},
+"75": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"77": {
+"next_id": "78",
+"text": "PescadorIrún",
+"type": "title"
+},
+"78": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "ha_hablado_pescador"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "87",
+"next_id": "79",
+"next_id_after": "89",
+"type": "condition"
+},
+"79": {
+"character": "",
+"next_id": "80",
+"parent_id": "78",
+"replacements": [  ],
+"text": "No parece un buen sitio para pescar.",
+"translation_key": "No parece un buen sitio para pescar.",
+"type": "dialogue"
+},
+"8": {
+"mutation": {
+"expression": [ {
+"function": "skull_transition",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "11",
+"parent_id": "6",
+"type": "mutation"
+},
+"80": {
+"next_id": "81",
+"next_id_after": "86",
+"parent_id": "78",
+"replacements": [  ],
+"responses": PoolStringArray( "80", "84" ),
+"text": "Decirle que vaya al mar.",
+"translation_key": "Decirle que vaya al mar.",
+"type": "response"
+},
+"81": {
+"character": "",
+"next_id": "82",
+"parent_id": "80",
+"replacements": [  ],
+"text": "No te responde. [wait=0.5]En su lugar, te dice con la mirada que observes su cubo.",
+"translation_key": "No te responde. [wait=0.5]En su lugar, te dice con la mirada que observes su cubo.",
+"type": "dialogue"
+},
+"82": {
+"character": "",
+"next_id": "83",
+"parent_id": "80",
+"replacements": [  ],
+"text": "Hay un pez.",
+"translation_key": "Hay un pez.",
+"type": "dialogue"
+},
+"83": {
+"character": "",
+"next_id": "86",
+"parent_id": "80",
+"replacements": [  ],
+"text": "Sospechas que lo ha traído de casa para no sentirse tan mal.",
+"translation_key": "Sospechas que lo ha traído de casa para no sentirse tan mal.",
+"type": "dialogue"
+},
+"84": {
+"next_id": "85",
+"next_id_after": "86",
+"parent_id": "78",
+"replacements": [  ],
+"text": "Dejarle ser feliz.",
+"translation_key": "Dejarle ser feliz.",
+"type": "response"
+},
+"85": {
+"character": "",
+"next_id": "86",
+"parent_id": "84",
+"replacements": [  ],
+"text": "Sientes que es lo correcto.",
+"translation_key": "Sientes que es lo correcto.",
+"type": "dialogue"
+},
+"86": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "ha_hablado_pescador"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "89",
+"parent_id": "78",
+"type": "mutation"
+},
+"87": {
+"next_conditional_id": "89",
+"next_id": "88",
+"next_id_after": "89",
+"type": "condition"
+},
+"88": {
+"character": "",
+"next_id": "89",
+"parent_id": "87",
+"replacements": [  ],
+"text": "Es feliz.",
+"translation_key": "Es feliz.",
+"type": "dialogue"
+},
+"89": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"9": {
+"next_id": "11",
+"next_id_after": "11",
+"replacements": [  ],
+"text": "No, mejor me quedo en casa.",
+"translation_key": "No, mejor me quedo en casa.",
+"type": "response"
+},
+"91": {
+"next_id": "92",
+"text": "ChicaIrún",
+"type": "title"
+},
+"92": {
+"character": "Vecina",
+"character_replacements": [  ],
+"next_id": "93",
+"replacements": [  ],
+"text": "¡Tráeme algún recuerdo del viaje!",
+"translation_key": "¡Tráeme algún recuerdo del viaje!",
+"type": "dialogue"
+},
+"93": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"95": {
+"next_id": "96",
+"text": "ManzanaIrún",
+"type": "title"
+},
+"96": {
+"character": "Vecino",
+"character_replacements": [  ],
+"next_id": "97",
+"replacements": [  ],
+"text": "Ñam",
+"translation_key": "Ñam",
+"type": "dialogue"
+},
+"97": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "paused"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"99": {
+"next_id": "100",
+"text": "TendalInicio",
+"type": "title"
+}
+}

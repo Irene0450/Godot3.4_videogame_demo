@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Combates/manecilla ruleta.png" type="Texture" id=1]
+[ext_resource path="res://Combates/ruleta un tercio.png" type="Texture" id=2]
+[ext_resource path="res://Combates/RuletaScene.gd" type="Script" id=3]
+
+[node name="RuletaScene" type="Node2D"]
+script = ExtResource( 3 )
+_roullete_rounds = 10
+_roullete_speed = 200
+_rate = 40.0
+
+[node name="SpriteRuleta" type="Sprite" parent="."]
+position = Vector2( 488, 296 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+
+[node name="Area acertar" type="Area2D" parent="SpriteRuleta"]
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="SpriteRuleta/Area acertar"]
+position = Vector2( -521, -332 )
+polygon = PoolVector2Array( 534, 308, 544.875, 319.5, 548, 332, 543, 347, 534, 355, 520.875, 333.5, 520.875, 331.5 )
+disabled = true
+
+[node name="Area fallar" type="Area2D" parent="SpriteRuleta"]
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="SpriteRuleta/Area fallar"]
+position = Vector2( -455.125, -287.5 )
+polygon = PoolVector2Array( 467, 310, 455, 315, 437, 309, 430.125, 296.5, 427, 287, 435, 268, 440.125, 264.5, 457.125, 260.5, 467, 264, 455, 287, 455, 288 )
+disabled = true
+
+[node name="AreaManecilla" type="Area2D" parent="."]
+position = Vector2( 488, -19 )
+
+[node name="SpriteManecilla" type="Sprite" parent="AreaManecilla"]
+position = Vector2( 0, -325 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 80 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaManecilla"]
+position = Vector2( -8, -45 )
+polygon = PoolVector2Array( 0, -5, 8, -5, 8, 171, 0, 171 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Delay" type="Timer" parent="."]
+
+[connection signal="area_entered" from="AreaManecilla" to="." method="_on_AreaManecilla_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]

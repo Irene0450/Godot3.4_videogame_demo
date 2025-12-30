@@ -1,0 +1,229 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/Player/spritesheet + fumar + ataques.png" type="Texture" id=1]
+[ext_resource path="res://Font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Combates/Player combate.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.61 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -28, 18 ), Vector2( -28, -2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Death"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Normal attack (staff)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 88, 89, 90, 91, 92, 93 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Normal attack (sword)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 114, 115, 116, 117, 118, 119 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 20 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Strong attack (staff)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 94, 95, 96, 97, 98, 99 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Strong attack (sword)"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 120, 121, 122, 123, 124, 125 ]
+}
+
+[node name="Player combate" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 24 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+hframes = 22
+vframes = 8
+frame = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -23.0
+margin_top = 20.0
+margin_right = 17.0
+margin_bottom = 34.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Damage = SubResource( 4 )
+anims/Death = SubResource( 8 )
+anims/Idle = SubResource( 1 )
+"anims/Normal attack (staff)" = SubResource( 2 )
+"anims/Normal attack (sword)" = SubResource( 5 )
+anims/RESET = SubResource( 3 )
+"anims/Strong attack (staff)" = SubResource( 6 )
+"anims/Strong attack (sword)" = SubResource( 7 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = -32.0
+margin_top = -16.0
+margin_right = 44.0
+margin_bottom = -2.0
+rect_scale = Vector2( 0.8, 0.8 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
