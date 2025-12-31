@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/Player/spritesheet + fumar + ataques.png" type="Texture" id=1]
-[ext_resource path="res://Font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Combates/Player combate.gd" type="Script" id=3]
+[ext_resource path="res://sprites/spritesheet_player.png" type="Texture" id=1]
+[ext_resource path="res://font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/player_combate.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 2 )
