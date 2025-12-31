@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Sprites/NPC's/Abad/Spritesheet abad.png" type="Texture" id=1]
-[ext_resource path="res://Font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Combates/Abad combate.gd" type="Script" id=3]
+[ext_resource path="res://sprites/spritesheet_abad.png" type="Texture" id=1]
+[ext_resource path="res://font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/abad_combate.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 2 )
