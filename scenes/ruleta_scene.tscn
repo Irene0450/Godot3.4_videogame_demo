@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Combates/manecilla ruleta.png" type="Texture" id=1]
-[ext_resource path="res://Combates/ruleta un tercio.png" type="Texture" id=2]
-[ext_resource path="res://Combates/RuletaScene.gd" type="Script" id=3]
+[ext_resource path="res://sprites/manilla_ruleta.png" type="Texture" id=1]
+[ext_resource path="res://sprites/ruleta_un_tercio.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ruleta_scene.gd" type="Script" id=3]
 
 [node name="RuletaScene" type="Node2D"]
 script = ExtResource( 3 )
