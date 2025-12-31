@@ -1,8 +1,17 @@
 extends Node
 
+# Variables
 var inventory = []
 var saved_inventory = [] 
+var player_node: Node = null
+var current_context := "world"
+onready var inventory_slot_scene = preload("res://scenes/slot.tscn")
 
+# Señales
+signal inventory_updated 
+signal context_changed(new_context)
+
+# Funciones
 func save_inventory():
 	saved_inventory.clear()
 	for item in inventory:
@@ -19,15 +28,6 @@ func restore_inventory():
 		else:
 			inventory.append(null)
 	emit_signal("inventory_updated")
-
-signal inventory_updated 
-
-var player_node: Node = null
-
-var current_context := "world"
-signal context_changed(new_context)
-
-onready var inventory_slot_scene = preload("res://Scenes/Slot.tscn")
 
 func set_context(new_context: String) -> void:
 	if current_context != new_context:
@@ -60,7 +60,6 @@ func remove_item(item_type, item_effect):
 			return true
 	return false
 
-
 func increase_inventory_size():
 		emit_signal("inventory_updated")
 
@@ -85,7 +84,7 @@ func drop_item(item_data, drop_position):
 	item_instance.global_position = drop_position
 	get_tree().current_scene.add_child(item_instance)
 
-func swap_inventory_items(index1, index2):
+func swap_inventory_items(index1, index2): # Revisar
 	if index1 < 0 or index1 >= inventory.size() or index2 < 0 or index2 >= inventory.size():
 		return false
 	var temp = inventory[index1]
