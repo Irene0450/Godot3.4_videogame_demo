@@ -1,5 +1,7 @@
 extends Node
 
+# Script siempre cargado
+
 # Variables
 var inventory = []
 var saved_inventory = [] 
