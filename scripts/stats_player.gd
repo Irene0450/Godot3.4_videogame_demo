@@ -1,5 +1,7 @@
 extends Node
 
+# Script siempre cargado
+
 var health = 20
 var max_health = 20
 var damage = 0
