@@ -1,9 +1,10 @@
 extends Control
 
+# Variables
 onready var grid_container = $NinePatchRect/GridContainer 
-
 var dragged_slot = null
 
+# Funciones
 func _ready():
 	Global.connect("inventory_updated", self, "inventory_updated")
 	inventory_updated()
@@ -20,14 +21,15 @@ func inventory_updated():
 			slot.set_item(item)
 		else:
 			slot.set_empty()
-	
 
+# Borrar items
 func clear_grid_container():
 	while grid_container.get_child_count() > 0:
 		var child = grid_container.get_child(0)
 		grid_container.remove_child(child)
 		child.queue_free()
 
+# Arrastrar items
 func _on_drag_start(slot_control : Control):
 	dragged_slot = slot_control
 	print("_on_drag_start funciona", dragged_slot)
@@ -39,28 +41,25 @@ func _on_drag_end():
 		drop_slot(dragged_slot, target_slot) 
 	dragged_slot = null
 
-
 func get_slot_under_mouse() -> Control:
 	var mouse_position = get_global_mouse_position()
-	print("Mouse Position:", mouse_position)
+	print("Posición ratón:", mouse_position)
 	for slot in grid_container.get_children():
-		# Cambié global_position por rect_global_position
-		#var slot_rect = Rect2(slot.rect_global_position, slot.rect_size) video
 		var slot_rect = Rect2(slot.get_global_transform().origin, slot.rect_size)
 		print("Slot Rect:", slot_rect)
 		if slot_rect.has_point(mouse_position):
-			print("Slot Under Mouse:", slot)
+			print("Slot debajo ratón:", slot)
 			return slot
 	return null
 
-
+# Identificar y soltar slot
 func get_slot_index(slot: Control) -> int:
 	for i in range(grid_container.get_child_count()):
 		if grid_container.get_child(i) == slot:
 			return i
 	return -1 
 
-func drop_slot(slot1: Control, slot2: Control):
+func drop_slot(slot1: Control, slot2: Control): # Revisar
 	var slot1_index = get_slot_index(slot1)
 	var slot2_index = get_slot_index(slot2)
 	if slot1_index == -1 or slot2_index == -1:
@@ -70,12 +69,4 @@ func drop_slot(slot1: Control, slot2: Control):
 	else:
 		if Global.swap_inventory_items(slot1_index, slot2_index):
 			inventory_updated()
-			print("Dropping slots:", slot1_index, slot2_index)
-
-
-
-
-#https://github.com/christinec-dev/GodotInventorySystem/blob/main/Sectional_Code/13%20-%20Draggable%20Inventory/Scripts/Inventory_UI.gd#L44
-#Visita este enlace para ver el código original
-
-#Funciona pero raro
+			print("Slots tirados:", slot1_index, slot2_index)
