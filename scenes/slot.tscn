@@ -1,11 +1,10 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Sprites/Inventario/Slot3.png" type="Texture" id=1]
-[ext_resource path="res://Font/Retro Gaming.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Sprites/Items/Porro.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Slot.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/Inventario/Inv9.png" type="Texture" id=6]
+[ext_resource path="res://sprites/inventario/slot3.png" type="Texture" id=1]
+[ext_resource path="res://font/Retro Gaming.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/slot.gd" type="Script" id=5]
+[ext_resource path="res://sprites/inventario/inv9.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
