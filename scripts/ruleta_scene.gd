@@ -1,8 +1,6 @@
 extends Node2D
 
-func _ready():
-	randomize()
-
+# Variables
 export (int) var _roullete_rounds: int = 5
 var _current_round: int = 0
 export (int) var _roullete_speed: int = 100 # porcentaje
@@ -10,6 +8,12 @@ var _can_move_roullete: bool = false
 export (float) var _rate: float = 20.0
 var _selected_area: Area2D = null
 
+# Señales
+signal roulette_result(result) 
+
+# Funciones
+func _ready():
+	randomize()
 
 func _process(delta: float) -> void:
 	if _can_move_roullete:
@@ -37,15 +41,13 @@ func _start_roullete() -> void:
 	_can_move_roullete = false
 	$Delay.start()
 
-signal roulette_result(result) 
-
 func _on_Timer_timeout() -> void:
 	_current_round += 1
 	_roullete_speed = _roullete_speed - (_rate * _roullete_speed) / 100
 	if _current_round >= _roullete_rounds:
 		$Timer.stop()
 		print("Area ganadora: ", _selected_area.name)
-		if _selected_area.name == "Area acertar":
+		if _selected_area.name == "Area acertar": # Conecta con zona_batalla_abad
 			emit_signal("roulette_result", "acertar")
 		elif _selected_area.name == "Area fallar":
 			emit_signal("roulette_result", "fallar")
