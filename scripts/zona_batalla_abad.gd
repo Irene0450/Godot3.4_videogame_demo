@@ -1,16 +1,18 @@
 extends Node2D
 
+# Variables
+var current_roulette: Node2D = null
+
+# Funciones
 func _enter_tree() -> void:
-	Global.set_context("combat")
+	Global.set_context("combat") # Contexto
 
 func _ready():
 	get_node("Abad combate").connect("attack_made", self, "_on_attack_made")
 	Global.set_player_reference($"Player combate") 
-	#Global.set_context("combat") # opcional, ya hecho
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Player combate".connect("HideOptions", self, "on_HideOptions")
 	Global.save_inventory()
-
 
 func on_HideOptions():
 	get_node("Options").hide()
@@ -22,11 +24,8 @@ func _on_Normal_Attack_Button_pressed():
 	get_node("Abad combate").health -= StatsPlayer.damage
 	get_node("Abad combate").damage()
 
-
 func _on_attack_made():
 	get_node("Player combate")._on_attack_made() 
-
-var current_roulette: Node2D = null
 
 func _on_Special_Attack_Button_pressed():
 	get_node("Options").hide()
