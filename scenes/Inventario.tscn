@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Inventario/Inv3.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Slot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Font/_bitmap_font____romulus_by_pix3m-d6aokem.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprites/Inventario/Concha2.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Inventario.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Inventario" type="Control"]
+margin_top = -16.0
+margin_right = 152.0
+margin_bottom = 88.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -47.0
+margin_right = 72.0
+margin_bottom = 49.0
+texture = ExtResource( 1 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Concha1" type="Sprite" parent="NinePatchRect"]
+position = Vector2( 22, 12 )
+rotation = 1.5708
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+
+[node name="Concha2" type="Sprite" parent="NinePatchRect"]
+position = Vector2( 122, 12 )
+rotation = -1.5708
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -39.5
+margin_top = -44.0
+margin_right = 39.5
+margin_bottom = -30.0
+custom_colors/font_color = Color( 0.827451, 0.827451, 0.827451, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "INVENTARIO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+anchor_left = 0.520833
+anchor_top = 0.520833
+anchor_right = 0.520833
+anchor_bottom = 0.520833
+margin_left = -58.0
+margin_top = -28.0
+margin_right = 7.0
+margin_bottom = 6.0
+rect_scale = Vector2( 0.13, 0.13 )
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 10, 10 )
